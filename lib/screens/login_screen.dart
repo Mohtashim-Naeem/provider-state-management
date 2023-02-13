@@ -10,8 +10,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    // final _usernameController = TextEditingController();
-    // final _passwordController = TextEditingController();
+    final _usernameController = TextEditingController();
+    final _passwordController = TextEditingController();
 
     bool _usernameValid = true;
     bool _passwordValid = true;
@@ -74,9 +74,17 @@ class _LoginScreenState extends State<LoginScreen> {
               // SizedBox(
               //   height: 0.40,
               // ),
-              TextField(
-                controller: null,
+              TextFormField(
                 onChanged: _validateUsername,
+                validator: (value) {
+                  if (!_usernameValid) {
+                    return "Required";
+                  } else {
+                    return "yes";
+                  }
+                },
+                controller: _usernameController,
+                // onChanged: _validateUsername,
                 // onTap: () {},
                 style: TextStyle(fontSize: width * 0.04),
                 keyboardType: TextInputType.name,
@@ -108,13 +116,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       )),
                 ),
               ),
-              if (!_usernameValid) Text('Username is required'),
+              // if (!_usernameValid) Text('Username is required'),
               SizedBox(
                 height: height * 0.04,
               ),
               TextField(
-                controller: null,
-                onChanged: _validatePassword,
+                // controller: null,
+                // onChanged: _validatePassword,
                 onTap: () {},
 
                 style: TextStyle(fontSize: width * 0.04),
@@ -156,8 +164,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       )),
                 ),
               ),
-              if (!_passwordValid)
-                Text('Password must be at least 8 characters'),
+              // if (!_passwordValid)
+              //   Text('Password must be at least 8 characters'),
 
               SizedBox(height: height * 0.15),
 
