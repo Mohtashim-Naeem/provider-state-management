@@ -52,16 +52,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
 
-              SizedBox(
-                height: height * 0.01,
+              // SizedBox(
+              //   height: height * 0.02,
+              // ),
+
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  'Login ',
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: width * 0.06,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
-              Text(
-                'Login ',
-                style: TextStyle(
-                    fontSize: width * 0.10, fontWeight: FontWeight.bold),
-              ),
               SizedBox(
-                height: height * 0.08,
+                height: height * 0.04,
               ),
               // Row(
               //   children: [
@@ -71,9 +77,19 @@ class _LoginScreenState extends State<LoginScreen> {
               //     )
               //   ],
               // ),
-              // SizedBox(
-              //   height: 0.40,
-              // ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  'Username ',
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: width * 0.04,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.01,
+              ),
               TextFormField(
                 onChanged: _validateUsername,
                 validator: (value) {
@@ -93,10 +109,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     vertical: height * 0.009,
                     horizontal: height * 0.015,
                   ),
-                  label: const Text(
-                    'Username',
-                  ),
-                  labelStyle: TextStyle(
+                  hintText: 'Username',
+                  hintStyle: TextStyle(
                     fontSize: width * 0.04,
                     color: const Color.fromRGBO(89, 130, 130, 1),
                   ),
@@ -118,7 +132,20 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               // if (!_usernameValid) Text('Username is required'),
               SizedBox(
-                height: height * 0.04,
+                height: height * 0.02,
+              ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  'Password ',
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: width * 0.04,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.01,
               ),
               TextField(
                 // controller: null,
@@ -135,8 +162,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     vertical: height * 0.009,
                     horizontal: height * 0.015,
                   ),
-                  label: const Text('Password'),
-                  labelStyle: TextStyle(
+                  hintText: 'Password',
+                  // label: const Text('Password'),
+                  hintStyle: TextStyle(
                     fontSize: width * 0.04,
                     color: const Color.fromRGBO(89, 130, 130, 1),
                   ),
@@ -167,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
               // if (!_passwordValid)
               //   Text('Password must be at least 8 characters'),
 
-              SizedBox(height: height * 0.15),
+              SizedBox(height: height * 0.06),
 
               ElevatedButton(
                 onPressed: () {
@@ -184,7 +212,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   // backgroundColor: const Color.fromARGB(255, 6, 69, 38),
                   backgroundColor: const Color.fromARGB(255, 56, 154, 71),
 
-                  minimumSize: Size(width * 0.90, height * 0.08),
+                  minimumSize: Size(width * 0.90, height * 0.07),
                   textStyle: TextStyle(
                     fontSize: height * 0.025,
                   ),
