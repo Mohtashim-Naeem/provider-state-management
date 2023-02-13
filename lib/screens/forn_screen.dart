@@ -16,12 +16,28 @@ class _FormScreenState extends State<FormScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Sindh Mass Transit Authourity'),
-        backgroundColor: const Color.fromARGB(255, 6, 69, 38),
+        // backgroundColor: const Color.fromARGB(255, 6, 69, 38),
+
+        backgroundColor: const Color.fromARGB(255, 56, 154, 71),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(18.0),
         child: SingleChildScrollView(
           child: Column(children: [
+            // SizedBox(
+            //   height: height * 0.03,
+            // ),
+            Container(
+              width: width * 0.50,
+              height: height * 0.30,
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(25)),
+              child: Image.asset(
+                'images/logo2.png',
+                // width: width * 0.5,
+                // height: height * 0.60,
+              ),
+            ),
             SizedBox(
               height: height * 0.04,
             ),
@@ -47,14 +63,15 @@ class _FormScreenState extends State<FormScreen> {
                       // color: Color.fromARGB(15, 3, 71, 37),
                       // color: Colors.green
                       width: width * 0.005,
-                      color: const Color.fromARGB(255, 6, 69, 38),
+                      // color: const Color.fromARGB(255, 6, 69, 38),
+                      color: const Color.fromARGB(255, 56, 154, 71),
                     )),
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(width * 0.02),
                     borderSide: BorderSide(
                       width: width * 0.005,
-                      // color: Colors.black,
-                      color: const Color.fromARGB(255, 6, 69, 38),
+                      color: Colors.black,
+                      // color: const Color.fromARGB(255, 6, 69, 38),
                     )),
               ),
             ),
@@ -83,7 +100,9 @@ class _FormScreenState extends State<FormScreen> {
                       // color: Color.fromARGB(15, 3, 71, 37),
                       // color: Colors.green
                       width: width * 0.005,
-                      color: const Color.fromARGB(255, 6, 69, 38),
+                      color: const Color.fromARGB(255, 56, 154, 71),
+
+                      // color: const Color.fromARGB(255, 6, 69, 38),
                     )),
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(width * 0.02),
@@ -112,7 +131,9 @@ class _FormScreenState extends State<FormScreen> {
                         // color: Color.fromARGB(15, 3, 71, 37),
                         // color: Colors.green
                         width: width * 0.005,
-                        color: const Color.fromARGB(255, 6, 69, 38),
+                        color: const Color.fromARGB(255, 56, 154, 71),
+
+                        // color: const Color.fromARGB(255, 6, 69, 38),
                       )),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(width * 0.02),
@@ -192,7 +213,9 @@ class _FormScreenState extends State<FormScreen> {
                       // color: Color.fromARGB(15, 3, 71, 37),
                       // color: Colors.green
                       width: width * 0.005,
-                      color: const Color.fromARGB(255, 6, 69, 38),
+                      color: const Color.fromARGB(255, 56, 154, 71),
+
+                      // color: const Color.fromARGB(255, 6, 69, 38),
                     )),
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(width * 0.02),
@@ -227,7 +250,8 @@ class _FormScreenState extends State<FormScreen> {
                       // color: Color.fromARGB(15, 3, 71, 37),
                       // color: Colors.green
                       width: width * 0.005,
-                      color: const Color.fromARGB(255, 6, 69, 38),
+                      // color: const Color.fromARGB(255, 6, 69, 38),
+                      color: const Color.fromARGB(255, 56, 154, 71),
                     )),
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(width * 0.02),
@@ -256,7 +280,9 @@ class _FormScreenState extends State<FormScreen> {
                         // color: Color.fromARGB(15, 3, 71, 37),
                         // color: Colors.green
                         width: width * 0.005,
-                        color: const Color.fromARGB(255, 6, 69, 38),
+                        color: const Color.fromARGB(255, 56, 154, 71),
+
+                        // color: const Color.fromARGB(255, 6, 69, 38),
                       )),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(width * 0.02),
@@ -319,8 +345,10 @@ class _FormScreenState extends State<FormScreen> {
                       borderSide: BorderSide(
                         // color: Color.fromARGB(15, 3, 71, 37),
                         // color: Colors.green
+                        color: const Color.fromARGB(255, 56, 154, 71),
+
                         width: width * 0.005,
-                        color: const Color.fromARGB(255, 6, 69, 38),
+                        // color: const Color.fromARGB(255, 6, 69, 38),
                       )),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(width * 0.02),
@@ -384,7 +412,9 @@ class _FormScreenState extends State<FormScreen> {
                         // color: Color.fromARGB(15, 3, 71, 37),
                         // color: Colors.green
                         width: width * 0.005,
-                        color: const Color.fromARGB(255, 6, 69, 38),
+                        color: const Color.fromARGB(255, 56, 154, 71),
+
+                        // color: const Color.fromARGB(255, 6, 69, 38),
                       )),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(width * 0.02),
@@ -454,7 +484,9 @@ class _FormScreenState extends State<FormScreen> {
                       // color: Color.fromARGB(15, 3, 71, 37),
                       // color: Colors.green
                       width: width * 0.005,
-                      color: const Color.fromARGB(255, 6, 69, 38),
+                      color: const Color.fromARGB(255, 56, 154, 71),
+
+                      // color: const Color.fromARGB(255, 6, 69, 38),
                     )),
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(width * 0.02),
@@ -489,7 +521,9 @@ class _FormScreenState extends State<FormScreen> {
                       // color: Color.fromARGB(15, 3, 71, 37),
                       // color: Colors.green
                       width: width * 0.005,
-                      color: const Color.fromARGB(255, 6, 69, 38),
+                      color: const Color.fromARGB(255, 56, 154, 71),
+
+                      // color: const Color.fromARGB(255, 6, 69, 38),
                     )),
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(width * 0.02),
@@ -524,7 +558,9 @@ class _FormScreenState extends State<FormScreen> {
                       // color: Color.fromARGB(15, 3, 71, 37),
                       // color: Colors.green
                       width: width * 0.005,
-                      color: const Color.fromARGB(255, 6, 69, 38),
+                      color: const Color.fromARGB(255, 56, 154, 71),
+
+                      // color: const Color.fromARGB(255, 6, 69, 38),
                     )),
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(width * 0.02),
@@ -557,9 +593,11 @@ class _FormScreenState extends State<FormScreen> {
                     borderRadius: BorderRadius.circular(width * 0.02),
                     borderSide: BorderSide(
                       // color: Color.fromARGB(15, 3, 71, 37),
+                      color: const Color.fromARGB(255, 56, 154, 71),
+
                       // color: Colors.green
                       width: width * 0.005,
-                      color: const Color.fromARGB(255, 6, 69, 38),
+                      // color: const Color.fromARGB(255, 6, 69, 38),
                     )),
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(width * 0.02),
@@ -582,7 +620,9 @@ class _FormScreenState extends State<FormScreen> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(width * 0.025),
                 ),
-                backgroundColor: const Color.fromARGB(255, 6, 69, 38),
+                // backgroundColor: const Color.fromARGB(255, 6, 69, 38),
+
+                backgroundColor: const Color.fromARGB(255, 56, 154, 71),
                 minimumSize: Size(width * 0.90, height * 0.08),
                 textStyle: TextStyle(
                   fontSize: height * 0.025,

@@ -10,21 +10,27 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
+    // final _usernameController = TextEditingController();
+    // final _passwordController = TextEditingController();
+
+    bool _usernameValid = true;
+    bool _passwordValid = true;
+
+    void _validateUsername(String value) {
+      setState(() {
+        _usernameValid = value.trim().isNotEmpty;
+      });
+    }
+
+    void _validatePassword(String value) {
+      setState(() {
+        _passwordValid = value.trim().length >= 8;
+      });
+    }
+
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    return
-
-        // height: height * 0.40,
-        // decoration: BoxDecoration(
-        //     image: DecorationImage(
-        //   image: AssetImage(
-        //     'images/logo2.jpg',
-        //   ),
-        //   opacity: 0.3,
-        //   fit: BoxFit.cover,
-        // )),
-        Scaffold(
-      // backgroundColor: Colors.transparent,
+    return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(
           top: width * 0.02,
@@ -42,12 +48,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(25)),
                 child: Image.asset(
-                  'assets/images/logo.png',
+                  'images/logo2.png',
                 ),
               ),
 
               SizedBox(
-                height: height * 0.03,
+                height: height * 0.01,
               ),
               Text(
                 'Login ',
@@ -69,7 +75,9 @@ class _LoginScreenState extends State<LoginScreen> {
               //   height: 0.40,
               // ),
               TextField(
-                onTap: () {},
+                controller: null,
+                onChanged: _validateUsername,
+                // onTap: () {},
                 style: TextStyle(fontSize: width * 0.04),
                 keyboardType: TextInputType.name,
                 decoration: InputDecoration(
@@ -90,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         // color: Color.fromARGB(15, 3, 71, 37),
                         // color: Colors.green
                         width: width * 0.005,
-                        color: const Color.fromARGB(255, 6, 69, 38),
+                        color: const Color.fromARGB(255, 56, 154, 71),
                       )),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(width * 0.02),
@@ -100,10 +108,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       )),
                 ),
               ),
+              if (!_usernameValid) Text('Username is required'),
               SizedBox(
                 height: height * 0.04,
               ),
               TextField(
+                controller: null,
+                onChanged: _validatePassword,
                 onTap: () {},
 
                 style: TextStyle(fontSize: width * 0.04),
@@ -129,7 +140,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         // color: Colors.green,
                         width: width * 0.005,
 
-                        color: const Color.fromARGB(255, 6, 69, 38),
+                        color: const Color.fromARGB(255, 56, 154, 71),
+
+                        // color: const Color.fromARGB(255, 6, 69, 38),
                       )),
 
                   enabledBorder: OutlineInputBorder(
@@ -143,6 +156,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       )),
                 ),
               ),
+              if (!_passwordValid)
+                Text('Password must be at least 8 characters'),
 
               SizedBox(height: height * 0.15),
 
@@ -158,7 +173,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(width * 0.025),
                   ),
-                  backgroundColor: const Color.fromARGB(255, 6, 69, 38),
+                  // backgroundColor: const Color.fromARGB(255, 6, 69, 38),
+                  backgroundColor: const Color.fromARGB(255, 56, 154, 71),
+
                   minimumSize: Size(width * 0.90, height * 0.08),
                   textStyle: TextStyle(
                     fontSize: height * 0.025,

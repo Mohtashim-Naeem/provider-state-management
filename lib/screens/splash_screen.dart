@@ -25,9 +25,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Timer(const Duration(seconds: 3), () {
       try {
-        navigationService.navigateTo(formScreenRoute);
+        navigationService.navigateTo(loginScreenRoute);
       } catch (err) {
-        navigationService.navigateTo(formScreenRoute);
+        navigationService.navigateTo(loginScreenRoute);
       }
     });
   }
