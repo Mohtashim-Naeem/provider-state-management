@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_app_ssp/screens/login_screen.dart';
 import 'package:provider/provider.dart';
 
 import './services/navigation_service.dart';
@@ -41,6 +42,8 @@ class MyApp extends StatelessWidget {
           // Define the default font family.
           // fontFamily: 'Oxygen',
         ),
+        // home: const LoginScreen(),
+
         onGenerateRoute: onGenerateRoute,
         initialRoute: splashScreenRoute,
       ),
