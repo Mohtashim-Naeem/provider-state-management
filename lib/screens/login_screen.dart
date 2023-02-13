@@ -24,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
         //   fit: BoxFit.cover,
         // )),
         Scaffold(
-      backgroundColor: Colors.transparent,
+      // backgroundColor: Colors.transparent,
       body: Padding(
         padding: EdgeInsets.only(
           top: width * 0.02,
@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(25)),
                 child: Image.asset(
-                  'images/logo.png',
+                  'assets/images/logo.png',
                 ),
               ),
 
@@ -77,12 +77,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     vertical: height * 0.009,
                     horizontal: height * 0.015,
                   ),
-                  label: Text(
+                  label: const Text(
                     'Username',
                   ),
                   labelStyle: TextStyle(
                     fontSize: width * 0.04,
-                    color: Color.fromRGBO(89, 130, 130, 1),
+                    color: const Color.fromRGBO(89, 130, 130, 1),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(width * 0.02),
@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         // color: Color.fromARGB(15, 3, 71, 37),
                         // color: Colors.green
                         width: width * 0.005,
-                        color: Color.fromARGB(255, 6, 69, 38),
+                        color: const Color.fromARGB(255, 6, 69, 38),
                       )),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(width * 0.02),
@@ -116,10 +116,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     vertical: height * 0.009,
                     horizontal: height * 0.015,
                   ),
-                  label: Text('Password'),
+                  label: const Text('Password'),
                   labelStyle: TextStyle(
                     fontSize: width * 0.04,
-                    color: Color.fromRGBO(89, 130, 130, 1),
+                    color: const Color.fromRGBO(89, 130, 130, 1),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(width * 0.02),
@@ -129,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         // color: Colors.green,
                         width: width * 0.005,
 
-                        color: Color.fromARGB(255, 6, 69, 38),
+                        color: const Color.fromARGB(255, 6, 69, 38),
                       )),
 
                   enabledBorder: OutlineInputBorder(
@@ -154,19 +154,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   //       builder: (context) => ProfileScreen()),
                   // );
                 },
-                child: Text(
-                  'Login',
-                  style: TextStyle(fontSize: width * 0.05),
-                ),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(width * 0.025),
                   ),
-                  backgroundColor: Color.fromARGB(255, 6, 69, 38),
+                  backgroundColor: const Color.fromARGB(255, 6, 69, 38),
                   minimumSize: Size(width * 0.90, height * 0.08),
                   textStyle: TextStyle(
                     fontSize: height * 0.025,
                   ),
+                ),
+                child: Text(
+                  'Login',
+                  style: TextStyle(fontSize: width * 0.05),
                 ),
               ),
               SizedBox(
