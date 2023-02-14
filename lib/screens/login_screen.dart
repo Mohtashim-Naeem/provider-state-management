@@ -18,10 +18,13 @@ class _LoginScreenState extends State<LoginScreen> {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-            Colors.white,
+            // Color.fromARGB(255, 41, 63, 132),
+            // Color.fromARGB(255, 68, 158, 74)
 
-            Color.fromARGB(255, 56, 154, 71),
-            // Colors.green,
+            Colors.white, Color.fromARGB(255, 56, 154, 71),
+            // Color(0xf159957),
+            // Color(0xf155799),
+            // Color(0xf45a247),
           ])),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -190,18 +193,81 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(width * 0.025),
                       ),
                       // backgroundColor: const Color.fromARGB(255, 6, 69, 38),
-                      backgroundColor: const Color.fromARGB(255, 56, 154, 71),
+                      // backgroundColor: const Color.fromARGB(255, 56, 154, 71),
+                      backgroundColor:
+                          Color.fromARGB(255, 189, 138, 49).withOpacity(0.8),
 
                       minimumSize: Size(width * 0.90, height * 0.07),
                       textStyle: TextStyle(
-                        fontSize: height * 0.025,
+                        // color: Colors.,
+                        fontWeight: FontWeight.bold,
+                        fontSize: height * 0.04,
                       ),
                     ),
                     child: Text(
-                      'Login',
-                      style: TextStyle(fontSize: width * 0.05),
+                      'Submit',
+                      style: TextStyle(
+                        fontSize: width * 0.05,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
+
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //       borderRadius: BorderRadius.circular(50),
+                  //       gradient: LinearGradient(colors: [
+                  //         // Color(0xff1D2671),
+                  //         // Color(0xffC33764),
+
+                  //         // Color.fromARGB(255, 41, 63, 132),
+                  //         Color.fromARGB(255, 189, 138, 49),
+
+                  //         // Color.fromARGB(255, 56, 154, 71),
+                  //         // Color.fromARGB(255, 56, 154, 71),
+                  //         Colors.white,
+
+                  //         // Color.fromARGB(255, 68, 158, 74),
+                  //         // Color.fromARGB(255, 189, 138, 49),
+                  //       ])),
+                  //   child: ElevatedButton(
+                  //     onPressed: () {
+                  //       // Navigator.push(
+                  //       //     context,
+                  //       //     MaterialPageRoute(
+                  //       //         builder: (context) => login_screen()));
+                  //     },
+                  //     child: Text(
+                  //       "Login",
+                  //       style: TextStyle(
+                  //         fontSize: width * 0.05,
+                  //         //  shadows: [
+                  //         // Shadow(
+                  //         //     color: Colors.black.withOpacity(0.9),
+                  //         //     offset: Offset(08, 12),
+                  //         //     blurRadius: 05),
+                  //         // ]
+                  //       ),
+                  //     ),
+                  //     style: ElevatedButton.styleFrom(
+                  //       shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(50)
+
+                  //           // borderRadius: BorderRadius.only(
+                  //           //     topLeft: Radius.circular(25),
+                  //           //     bottomRight: Radius.circular(25)),
+                  //           ),
+                  //       backgroundColor: Colors.transparent,
+                  //       // backgroundColor: Color(0xFFffd004),
+                  //       // backgroundColor: Col
+                  //       // fixedSize: Size(width * 0.50, height * 0.075),
+                  //       // maximumSize: Size(width * 0.50, height * 0.075)
+
+                  //       minimumSize: Size(width * 0.90, height * 0.07),
+                  //     ),
+                  //   ),
+                  // ),
+
                   SizedBox(
                     height: height * 0.025,
                   ),
