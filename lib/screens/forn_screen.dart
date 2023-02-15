@@ -34,9 +34,8 @@ class _FormScreenState extends State<FormScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
+          centerTitle: true,
           title: const Text('Sindh Mass Transit Authourity'),
-          // backgroundColor: const Color.fromARGB(255, 6, 69, 38),
-
           backgroundColor: const Color.fromARGB(255, 56, 154, 71),
         ),
         body: Padding(
@@ -76,6 +75,7 @@ class _FormScreenState extends State<FormScreen> {
               DropdownButtonFormField(
                 borderRadius: BorderRadius.circular(width * 0.02),
                 decoration: InputDecoration(
+                  // hintText: 'Route No.',
                   filled: true,
                   fillColor: Colors.white70,
                   contentPadding: EdgeInsets.symmetric(
@@ -118,7 +118,9 @@ class _FormScreenState extends State<FormScreen> {
                       'Route 1',
                       style: TextStyle(
                         fontSize: width * 0.04,
-                        color: const Color.fromRGBO(89, 130, 130, 1),
+                        color: Colors.black,
+
+                        // color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
                   ),
@@ -128,7 +130,9 @@ class _FormScreenState extends State<FormScreen> {
                       'Route 2',
                       style: TextStyle(
                         fontSize: width * 0.04,
-                        color: const Color.fromRGBO(89, 130, 130, 1),
+                        color: Colors.black,
+
+                        // color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
                   ),
@@ -138,7 +142,9 @@ class _FormScreenState extends State<FormScreen> {
                       'Route 3',
                       style: TextStyle(
                         fontSize: width * 0.04,
-                        color: const Color.fromRGBO(89, 130, 130, 1),
+                        color: Colors.black,
+
+                        // color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
                   ),
@@ -206,8 +212,9 @@ class _FormScreenState extends State<FormScreen> {
                     child: Text(
                       'Abc 111',
                       style: TextStyle(
+                        color: Colors.black,
                         fontSize: width * 0.04,
-                        color: const Color.fromRGBO(89, 130, 130, 1),
+                        // color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
                   ),
@@ -217,7 +224,9 @@ class _FormScreenState extends State<FormScreen> {
                       'Abc 112',
                       style: TextStyle(
                         fontSize: width * 0.04,
-                        color: const Color.fromRGBO(89, 130, 130, 1),
+                        color: Colors.black,
+
+                        // color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
                   ),
@@ -227,7 +236,9 @@ class _FormScreenState extends State<FormScreen> {
                       'Abc 113',
                       style: TextStyle(
                         fontSize: width * 0.04,
-                        color: const Color.fromRGBO(89, 130, 130, 1),
+                        color: Colors.black,
+
+                        // color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
                   ),
@@ -549,7 +560,7 @@ class _FormScreenState extends State<FormScreen> {
                   DropdownMenuItem(
                     value: -1,
                     child: Text(
-                      'Functional',
+                      'ITS',
                       style: TextStyle(
                         fontSize: width * 0.04,
                         color: const Color.fromRGBO(89, 130, 130, 1),
@@ -562,17 +573,21 @@ class _FormScreenState extends State<FormScreen> {
                       'Installed',
                       style: TextStyle(
                         fontSize: width * 0.04,
-                        color: const Color.fromRGBO(89, 130, 130, 1),
+                        color: Colors.black,
+
+                        // color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
                   ),
                   DropdownMenuItem(
                     value: 2,
                     child: Text(
-                      'Non-Functional',
+                      'Functional',
                       style: TextStyle(
                         fontSize: width * 0.04,
-                        color: const Color.fromRGBO(89, 130, 130, 1),
+                        color: Colors.black,
+
+                        // color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
                   ),
@@ -587,7 +602,7 @@ class _FormScreenState extends State<FormScreen> {
               Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  'Pak Count ',
+                  'Passenger Count ',
                   style: TextStyle(
                       color: Colors.black87,
                       fontSize: width * 0.04,
@@ -611,7 +626,7 @@ class _FormScreenState extends State<FormScreen> {
                   // label: const Text(
                   //   'Pak Count.',
                   // ),
-                  hintText: 'Pak Count',
+                  hintText: 'Passenger Count',
                   hintStyle: TextStyle(
                     fontSize: width * 0.04,
                     color: const Color.fromRGBO(89, 130, 130, 1),
