@@ -17,11 +17,11 @@ class _FormScreenState extends State<FormScreen> {
   bool? check7 = false;
   @override
   Widget build(BuildContext context) {
-    var _value = -1;
+    var value = -1;
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -34,7 +34,7 @@ class _FormScreenState extends State<FormScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: Text('Sindh Mass Transit Authourity'),
+          title: const Text('Sindh Mass Transit Authourity'),
           // backgroundColor: const Color.fromARGB(255, 6, 69, 38),
 
           backgroundColor: const Color.fromARGB(255, 56, 154, 71),
@@ -103,6 +103,7 @@ class _FormScreenState extends State<FormScreen> {
                 ),
                 items: [
                   DropdownMenuItem(
+                    value: -1,
                     child: Text(
                       'Route No.',
                       style: TextStyle(
@@ -110,40 +111,39 @@ class _FormScreenState extends State<FormScreen> {
                         color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
-                    value: -1,
                   ),
                   DropdownMenuItem(
-                    child: Text(
-                      'x',
-                      style: TextStyle(
-                        fontSize: width * 0.04,
-                        color: const Color.fromRGBO(89, 130, 130, 1),
-                      ),
-                    ),
                     value: 1,
-                  ),
-                  DropdownMenuItem(
                     child: Text(
-                      'y',
+                      'Route 1',
                       style: TextStyle(
                         fontSize: width * 0.04,
                         color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
+                  ),
+                  DropdownMenuItem(
                     value: 2,
-                  ),
-                  DropdownMenuItem(
                     child: Text(
-                      'z',
+                      'Route 2',
                       style: TextStyle(
                         fontSize: width * 0.04,
                         color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
+                  ),
+                  DropdownMenuItem(
                     value: 3,
+                    child: Text(
+                      'Route 3',
+                      style: TextStyle(
+                        fontSize: width * 0.04,
+                        color: const Color.fromRGBO(89, 130, 130, 1),
+                      ),
+                    ),
                   ),
                 ],
-                value: _value,
+                value: value,
                 onChanged: (v) {},
               ),
               SizedBox(
@@ -192,6 +192,7 @@ class _FormScreenState extends State<FormScreen> {
                 ),
                 items: [
                   DropdownMenuItem(
+                    value: -1,
                     child: Text(
                       'Bus No.',
                       style: TextStyle(
@@ -199,40 +200,39 @@ class _FormScreenState extends State<FormScreen> {
                         color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
-                    value: -1,
                   ),
                   DropdownMenuItem(
-                    child: Text(
-                      'x',
-                      style: TextStyle(
-                        fontSize: width * 0.04,
-                        color: const Color.fromRGBO(89, 130, 130, 1),
-                      ),
-                    ),
                     value: 1,
-                  ),
-                  DropdownMenuItem(
                     child: Text(
-                      'y',
+                      'Abc 111',
                       style: TextStyle(
                         fontSize: width * 0.04,
                         color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
+                  ),
+                  DropdownMenuItem(
                     value: 2,
-                  ),
-                  DropdownMenuItem(
                     child: Text(
-                      'z',
+                      'Abc 112',
                       style: TextStyle(
                         fontSize: width * 0.04,
                         color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
+                  ),
+                  DropdownMenuItem(
                     value: 3,
+                    child: Text(
+                      'Abc 113',
+                      style: TextStyle(
+                        fontSize: width * 0.04,
+                        color: const Color.fromRGBO(89, 130, 130, 1),
+                      ),
+                    ),
                   ),
                 ],
-                value: _value,
+                value: value,
                 onChanged: (v) {},
               ),
               SizedBox(
@@ -294,7 +294,7 @@ class _FormScreenState extends State<FormScreen> {
               // ),
 
               CheckboxListTile(
-                  title: Text('Mannual'),
+                  title: const Text('Mannual'),
                   value: check1,
                   onChanged: (val) {
                     setState(() {
@@ -302,7 +302,7 @@ class _FormScreenState extends State<FormScreen> {
                     });
                   }),
               CheckboxListTile(
-                  title: Text('Hand head Devices'),
+                  title: const Text('Hand head Devices'),
                   value: check2,
                   onChanged: (val) {
                     setState(() {
@@ -310,7 +310,7 @@ class _FormScreenState extends State<FormScreen> {
                     });
                   }),
               CheckboxListTile(
-                  title: Text('Card'),
+                  title: const Text('Card'),
                   value: check3,
                   onChanged: (val) {
                     setState(() {
@@ -547,6 +547,7 @@ class _FormScreenState extends State<FormScreen> {
                 ),
                 items: [
                   DropdownMenuItem(
+                    value: -1,
                     child: Text(
                       'Functional',
                       style: TextStyle(
@@ -554,9 +555,9 @@ class _FormScreenState extends State<FormScreen> {
                         color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
-                    value: -1,
                   ),
                   DropdownMenuItem(
+                    value: 1,
                     child: Text(
                       'Installed',
                       style: TextStyle(
@@ -564,9 +565,9 @@ class _FormScreenState extends State<FormScreen> {
                         color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
-                    value: 1,
                   ),
                   DropdownMenuItem(
+                    value: 2,
                     child: Text(
                       'Non-Functional',
                       style: TextStyle(
@@ -574,10 +575,9 @@ class _FormScreenState extends State<FormScreen> {
                         color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                     ),
-                    value: 2,
                   ),
                 ],
-                value: _value,
+                value: value,
                 onChanged: (v) {},
               ),
               SizedBox(
@@ -873,7 +873,7 @@ class _FormScreenState extends State<FormScreen> {
               //   ),
               // ),
               CheckboxListTile(
-                  title: Text('Outside'),
+                  title: const Text('Outside'),
                   value: check4,
                   onChanged: (val) {
                     setState(() {
@@ -881,7 +881,7 @@ class _FormScreenState extends State<FormScreen> {
                     });
                   }),
               CheckboxListTile(
-                  title: Text('Inside'),
+                  title: const Text('Inside'),
                   value: check5,
                   onChanged: (val) {
                     setState(() {
@@ -970,7 +970,7 @@ class _FormScreenState extends State<FormScreen> {
               //   ),
               // ),
               CheckboxListTile(
-                  title: Text('Driver'),
+                  title: const Text('Driver'),
                   value: check6,
                   onChanged: (val) {
                     setState(() {
@@ -979,7 +979,7 @@ class _FormScreenState extends State<FormScreen> {
                   }),
               CheckboxListTile(
                   // tileColor: Colors.white70,
-                  title: Text('Conductor'),
+                  title: const Text('Conductor'),
                   value: check7,
                   onChanged: (val) {
                     setState(() {
@@ -1003,7 +1003,7 @@ class _FormScreenState extends State<FormScreen> {
                   // backgroundColor: const Color.fromARGB(255, 6, 69, 38),
                   // backgroundColor: const Color.fromARGB(255, 56, 154, 71),
                   backgroundColor:
-                      Color.fromARGB(255, 189, 138, 49).withOpacity(0.8),
+                      const Color.fromARGB(255, 189, 138, 49).withOpacity(0.8),
 
                   minimumSize: Size(width * 0.90, height * 0.07),
                   textStyle: TextStyle(

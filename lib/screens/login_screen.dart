@@ -13,7 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -21,7 +21,8 @@ class _LoginScreenState extends State<LoginScreen> {
             // Color.fromARGB(255, 41, 63, 132),
             // Color.fromARGB(255, 68, 158, 74)
 
-            Colors.white, Color.fromARGB(255, 56, 154, 71),
+            Colors.white,
+            Color.fromARGB(255, 56, 154, 71),
             // Color(0xf159957),
             // Color(0xf155799),
             // Color(0xf45a247),
@@ -194,8 +195,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       // backgroundColor: const Color.fromARGB(255, 6, 69, 38),
                       // backgroundColor: const Color.fromARGB(255, 56, 154, 71),
-                      backgroundColor:
-                          Color.fromARGB(255, 189, 138, 49).withOpacity(0.8),
+                      backgroundColor: const Color.fromARGB(255, 189, 138, 49)
+                          .withOpacity(0.8),
 
                       minimumSize: Size(width * 0.90, height * 0.07),
                       textStyle: TextStyle(
