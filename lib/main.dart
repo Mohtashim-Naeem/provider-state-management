@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:form_app_ssp/screens/login_screen.dart';
+import 'package:form_app_ssp/providers/form_provider.dart';
 import 'package:provider/provider.dart';
 
 import './services/navigation_service.dart';
@@ -12,6 +12,7 @@ void main() async {
   setupLocator();
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => AuthProvider()),
+    ChangeNotifierProvider(create: (_) => FormProvider()),
   ], child: const MyApp()));
 }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:form_app_ssp/screens/forn_screen.dart';
+import 'package:form_app_ssp/screens/form_screen.dart';
 import 'package:form_app_ssp/screens/login_screen.dart';
 import 'package:form_app_ssp/screens/splash_screen.dart';
 
