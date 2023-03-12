@@ -1492,6 +1492,9 @@ class _FormScreenState extends State<FormScreen> {
                             setState(() {
                               isLoadingProgress = true;
                             });
+                            var imageUrl = Provider.of<FormProvider>(context,
+                                    listen: false)
+                                .imageUrl;
                             var data = {
                               "UserID": user!.userID,
                               "FullName": user!.fullName,
@@ -1509,8 +1512,8 @@ class _FormScreenState extends State<FormScreen> {
                               "Behavior": behaviourOfStaff,
                               "Lat": position!.latitude,
                               "Long": position!.longitude,
-                              "BusPicture":
-                                  "https://smta.pk/Images/BusImages/3d9a9c7e-01e7-4bf1-934a-25c5ccea3a3b_1122.jpg",
+                              "BusPicture": imageUrl,
+                              // "https://smta.pk/Images/BusImages/3d9a9c7e-01e7-4bf1-934a-25c5ccea3a3b_1122.jpg",
                               "Remarks": anyotherController.text,
                               "PassengerCount": passengerController.text,
                               "Address": currentLocationController.text,

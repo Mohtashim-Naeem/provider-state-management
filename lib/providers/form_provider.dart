@@ -14,7 +14,7 @@ class FormProvider with ChangeNotifier {
   final UtilService _utilService = locator<UtilService>();
   final StorageService storageService = locator<StorageService>();
   final NavigationService navigationService = locator<NavigationService>();
-  final baseUrl = "https://smta.pk/api/AccountData/";
+  final baseUrl = "https://smta.pk/api/AccountData";
   List<BusModel>? bus = [];
   List<RouteModel>? route = [];
   String imageUrl = "";
@@ -26,7 +26,7 @@ class FormProvider with ChangeNotifier {
   getAllBuses() async {
     try {
       bus = [];
-      var response = await _dio.get('${baseUrl}GetBus');
+      var response = await _dio.get('${baseUrl}/GetBus');
       for (int i = 0; i < response.data.length; i++) {
         bus!.add(BusModel.fromJson(response.data[i]));
       }
@@ -38,7 +38,7 @@ class FormProvider with ChangeNotifier {
   getAllRoutes() async {
     try {
       route = [];
-      var response = await _dio.get('${baseUrl}GetRoute');
+      var response = await _dio.get('${baseUrl}/GetRoute');
       for (int i = 0; i < response.data.length; i++) {
         route!.add(RouteModel.fromJson(response.data[i]));
       }
@@ -49,7 +49,7 @@ class FormProvider with ChangeNotifier {
 
   submitForm(var data) async {
     try {
-      var response = _dio.post('${baseUrl}InsertInspection', data: data);
+      var response = _dio.post('${baseUrl}/InsertInspection', data: data);
     } catch (e) {
       _utilService.showToast(e.toString());
     }
@@ -61,11 +61,13 @@ class FormProvider with ChangeNotifier {
     // request.files.add(await http.MultipartFile.fromPath('', imagePath));
 
     // http.StreamedResponse response = await request.send();
-    var formData = FormData.fromMap({
-      'file': await MultipartFile.fromFile(imagePath, filename: filename)
-    });
+    var formData = FormData.fromMap(
+        {'file': await MultipartFile.fromFile(imagePath, filename: filename)});
     var response = await _dio.post('${baseUrl}UploadImageFile', data: formData);
     print(response.data);
+    if (response.statusCode == 200) {
+      imageUrl = "$baseUrl" + response.data['url'];
+    }
     // if (response.da == 200) {
     //   print(await response.stream.bytesToString());
     // } else {
