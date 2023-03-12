@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:form_app_ssp/models/user_model.dart';
+import 'package:form_app_ssp/providers/auth_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../services/storage_service.dart';
 import '../utils/routes.dart';
@@ -28,6 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
       try {
         var data = await storageService.haveBoolData('isLogin');
         if (data) {
+          var user = await storageService.getData('user');
+          Provider.of<AuthProvider>(context,listen: false).setData(UserModel.fromJson(user));
           navigationService.navigateTo(formScreenRoute);
         } else {
           navigationService.navigateTo(loginScreenRoute);
