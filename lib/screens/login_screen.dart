@@ -199,6 +199,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ElevatedButton(
                       onPressed: () async {
                         try {
+                          FocusScope.of(context).unfocus();
                           if (_username.text.isEmpty &&
                               _password.text.isEmpty) {
                             _utilService.showToast('please fill all fields');

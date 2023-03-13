@@ -36,6 +36,7 @@ class _FormScreenState extends State<FormScreen> {
   bool? conductor = false;
   bool isLoadingProgress = false;
   bool isLoadingLocation = false;
+  bool imageLoader = false;
   final NavigationService navigationService = locator<NavigationService>();
   final UtilService _utilService = locator<UtilService>();
   TextEditingController headwayAdherenceController = TextEditingController();
@@ -200,12 +201,12 @@ class _FormScreenState extends State<FormScreen> {
     }
   }
 
-  @override
-  void didUpdateWidget(covariant FormScreen oldWidget) {
-    user = Provider.of<AuthProvider>(context, listen: false).user;
-    loadData();
-    super.didUpdateWidget(oldWidget);
-  }
+  // @override
+  // void didUpdateWidget(covariant FormScreen oldWidget) {
+  //   user = Provider.of<AuthProvider>(context, listen: false).user;
+  //   loadData();
+  //   super.didUpdateWidget(oldWidget);
+  // }
 
   @override
   void dispose() {
@@ -236,7 +237,7 @@ class _FormScreenState extends State<FormScreen> {
               // Colors.green,
             ])),
         child: AbsorbPointer(
-          absorbing: isLoadingProgress,
+          absorbing: isLoadingProgress || imageLoader,
           child: Scaffold(
             backgroundColor: Colors.transparent,
             appBar: AppBar(
@@ -1440,7 +1441,13 @@ class _FormScreenState extends State<FormScreen> {
                         SizedBox(height: height * 0.08),
                         ElevatedButton(
                           onPressed: () async {
+                            setState(() {
+                              imageLoader = true;
+                            });
                             await getImage();
+                            setState(() {
+                              imageLoader = false;
+                            });
                           },
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
@@ -1471,6 +1478,7 @@ class _FormScreenState extends State<FormScreen> {
                         const SizedBox(
                           height: 10,
                         ),
+                        if (imageLoader) CircularProgressIndicator(),
                         if (_imageFile.path != '')
                           Image.file(
                             _imageFile,
@@ -1481,8 +1489,9 @@ class _FormScreenState extends State<FormScreen> {
                         ),
                         ElevatedButton(
                           onPressed: () async {
+                            FocusScope.of(context).unfocus();
                             if (currentLocationController.text.isEmpty &&
-                                // _imageFile.path == '' &&
+                                _imageFile.path == '' &&
                                 busName == '' &&
                                 routeName == '' &&
                                 position != null) {
