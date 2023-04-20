@@ -43,7 +43,7 @@ class AuthProvider with ChangeNotifier {
   }
 
   signOut() async {
-    await storageService.removeData('isLogin');
+    await storageService.clearData();
     navigationService.navigateTo(loginScreenRoute);
   }
 }

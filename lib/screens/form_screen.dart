@@ -1494,7 +1494,7 @@ class _FormScreenState extends State<FormScreen> {
                                 _imageFile.path == '' &&
                                 busName == '' &&
                                 routeName == '' &&
-                                position != null) {
+                              position != null) {
                               _utilService.showToast('please fill all fields');
                               return;
                             }
