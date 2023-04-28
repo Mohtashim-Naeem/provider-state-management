@@ -32,7 +32,8 @@ class _SplashScreenState extends State<SplashScreen> {
         var data = await storageService.haveBoolData('isLogin');
         if (data) {
           var user = await storageService.getData('user');
-          Provider.of<AuthProvider>(context,listen: false).setData(UserModel.fromJson(user));
+          Provider.of<AuthProvider>(context, listen: false)
+              .setData(UserModel.fromJson(user));
           navigationService.navigateTo(formScreenRoute);
         } else {
           navigationService.navigateTo(loginScreenRoute);
@@ -58,19 +59,21 @@ class _SplashScreenState extends State<SplashScreen> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
+        backgroundColor: Colors.transparent,
         body: Container(
           decoration: const BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                // Color.fromARGB(255, 41, 63, 132),
-                // Color.fromARGB(255, 68, 158, 74)
+                // Color.fromARGB(15, 179, 255, 171),
+                // Color.fromARGB(15, 18, 255, 247),
+
+                // Colors.black
 
                 Colors.white,
                 Color.fromARGB(255, 56, 154, 71),
-                // Color(0xf159957),
-                // Color(0xf155799),
+
                 // Color(0xf45a247),
               ])),
           child: Stack(
