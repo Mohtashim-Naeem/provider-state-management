@@ -63,7 +63,8 @@ class FormProvider with ChangeNotifier {
     // http.StreamedResponse response = await request.send();
     var formData = FormData.fromMap(
         {'file': await MultipartFile.fromFile(imagePath, filename: filename)});
-    var response = await _dio.post('${baseUrl}/UploadImageFile', data: formData);
+    var response =
+        await _dio.post('${baseUrl}/UploadImageFile', data: formData);
     print(response.data);
     if (response.statusCode == 200) {
       imageUrl = response.data['url'];

@@ -152,7 +152,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(
                           // color: Color.fromARGB(255, 56, 154, 71),
 
-                          color: Colors.black,
+                          // color: Colors.black,
                           // color: Color.fromARGB(255, 199, 233, 255),
                           // color: Color.fromARGB(92, 64, 64, 64),
                           // color: Color.fromARGB(255, 128, 128, 128),
@@ -182,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       // label: const Text('Password'),
                       hintStyle: TextStyle(
                         fontSize: width * 0.04,
-                        color: const Color.fromRGBO(89, 130, 130, 1),
+                        // color: const Color.fromRGBO(89, 130, 130, 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(width * 0.02),
@@ -251,7 +251,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       // backgroundColor: const Color.fromARGB(255, 128, 128, 128),
 
                       //  dark green
-                      backgroundColor: Color.fromARGB(255, 56, 154, 71),
+                      backgroundColor: const Color.fromARGB(255, 56, 154, 71),
 
                       // ======off-white
                       // backgroundColor: Color.fromARGB(255, 60, 141, 188),
@@ -276,7 +276,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             style: TextStyle(
                               //======light grey
 
-                              color: Color.fromARGB(255, 214, 214, 214),
+                              color: const Color.fromARGB(255, 214, 214, 214),
 
                               // ====== greeeen
                               // color: Color.fromARGB(255, 199, 233, 255),

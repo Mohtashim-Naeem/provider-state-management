@@ -27,6 +27,15 @@ class FormScreen extends StatefulWidget {
 }
 
 class _FormScreenState extends State<FormScreen> {
+  bool? ticketValidator = false;
+  bool? passengerDoorCount = false;
+  bool? wifiSystem = false;
+  bool? msgDisUnit = false;
+  bool? audioSystem = false;
+  bool? driverPanicAlarm = false;
+  bool? stopButtons = false;
+  bool? cctvCam = false;
+  bool? usb = false;
   bool? manualCheck = false;
   bool? handheldDevices = false;
   bool? card = false;
@@ -228,7 +237,7 @@ class _FormScreenState extends State<FormScreen> {
       child: AbsorbPointer(
         absorbing: isLoadingProgress || imageLoader,
         child: Scaffold(
-          backgroundColor: Color.fromARGB(255, 214, 214, 214),
+          backgroundColor: const Color.fromARGB(255, 214, 214, 214),
 
           // backgroundColor: Colors.transparent,
           appBar: AppBar(
@@ -897,6 +906,82 @@ class _FormScreenState extends State<FormScreen> {
                             });
                           },
                         ),
+// ====================================================New check boxes starts================================
+
+                      CheckboxListTile(
+                          title: const Text('Ticket Validator'),
+                          value: ticketValidator,
+                          onChanged: (val) {
+                            setState(() {
+                              ticketValidator = val;
+                            });
+                          }),
+                      CheckboxListTile(
+                          title: const Text('Passengers Door Count'),
+                          value: passengerDoorCount,
+                          onChanged: (val) {
+                            setState(() {
+                              passengerDoorCount = val;
+                            });
+                          }),
+                      CheckboxListTile(
+                          title: const Text('Wifi System'),
+                          value: wifiSystem,
+                          onChanged: (val) {
+                            setState(() {
+                              wifiSystem = val;
+                            });
+                          }),
+                      CheckboxListTile(
+                          title: const Text('Message Display Unit'),
+                          value: msgDisUnit,
+                          onChanged: (val) {
+                            setState(() {
+                              msgDisUnit = val;
+                            });
+                          }),
+                      CheckboxListTile(
+                          title: const Text('Audio System'),
+                          value: audioSystem,
+                          onChanged: (val) {
+                            setState(() {
+                              audioSystem = val;
+                            });
+                          }),
+                      CheckboxListTile(
+                          title: const Text('Driver Panic Alarm'),
+                          value: driverPanicAlarm,
+                          onChanged: (val) {
+                            setState(() {
+                              driverPanicAlarm = val;
+                            });
+                          }),
+                      CheckboxListTile(
+                          title: const Text('Stop Buttons'),
+                          value: stopButtons,
+                          onChanged: (val) {
+                            setState(() {
+                              stopButtons = val;
+                            });
+                          }),
+                      CheckboxListTile(
+                          title: const Text('CCTV Cameras'),
+                          value: cctvCam,
+                          onChanged: (val) {
+                            setState(() {
+                              cctvCam = val;
+                            });
+                          }),
+                      CheckboxListTile(
+                          title: const Text('USB Ports'),
+                          value: usb,
+                          onChanged: (val) {
+                            setState(() {
+                              usb = val;
+                            });
+                          }),
+
+// ========================================New ccheck boxes ends=================================================
 
                       SizedBox(
                         height: height * 0.04,
@@ -1427,9 +1512,11 @@ class _FormScreenState extends State<FormScreen> {
                           ),
                           // backgroundColor: const Color.fromARGB(255, 6, 69, 38),
                           // backgroundColor: const Color.fromARGB(255, 56, 154, 71),
+
                           backgroundColor:
-                              const Color.fromARGB(255, 189, 138, 49)
-                                  .withOpacity(0.8),
+                              const Color.fromARGB(255, 56, 154, 71),
+                          //     const Color.fromARGB(255, 189, 138, 49)
+                          //         .withOpacity(0.8),
 
                           minimumSize: Size(width * 0.5, height * 0.07),
                           textStyle: TextStyle(
@@ -1442,7 +1529,9 @@ class _FormScreenState extends State<FormScreen> {
                           'Take a Picture',
                           style: TextStyle(
                             fontSize: width * 0.05,
-                            color: Colors.white,
+                            color: const Color.fromARGB(255, 214, 214, 214),
+
+                            // color: Colors.white,
                           ),
                         ),
                       ),
@@ -1566,7 +1655,9 @@ class _FormScreenState extends State<FormScreen> {
                                 'Submit',
                                 style: TextStyle(
                                   fontSize: width * 0.05,
-                                  color: Colors.white,
+                                  // color: Colors.white,
+                                  color:
+                                      const Color.fromARGB(255, 214, 214, 214),
                                 ),
                               ),
                       ),

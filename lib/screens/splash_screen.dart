@@ -59,64 +59,50 @@ class _SplashScreenState extends State<SplashScreen> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Container(
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                // Color.fromARGB(15, 179, 255, 171),
-                // Color.fromARGB(15, 18, 255, 247),
+        backgroundColor: Color.fromARGB(255, 214, 214, 214),
 
-                // Colors.black
+        // backgroundColor: Colors.transparent,
+        body: Stack(
 
-                Colors.white,
-                Color.fromARGB(255, 56, 154, 71),
+            // fit: StackFit.expand,
+            children: <Widget>[
+              // Container(
+              //   decoration: const BoxDecoration(
+              //     image: DecorationImage(
+              //         image: AssetImage('assets/images/splash.jpg'),
+              //         fit: BoxFit.cover),
+              //   ),
+              // ),
+              Positioned(
+                child: Align(
+                    alignment: FractionalOffset.center,
+                    child: Image.asset('assets/images/logo2.png')),
+              ),
 
-                // Color(0xf45a247),
-              ])),
-          child: Stack(
-              // fit: StackFit.expand,
-              children: <Widget>[
-                // Container(
-                //   decoration: const BoxDecoration(
-                //     image: DecorationImage(
-                //         image: AssetImage('assets/images/splash.jpg'),
-                //         fit: BoxFit.cover),
-                //   ),
-                // ),
-                Positioned(
-                  child: Align(
-                      alignment: FractionalOffset.center,
-                      child: Image.asset('assets/images/logo2.png')),
-                ),
-
-                Positioned(
-                  child: Align(
-                      alignment: FractionalOffset.bottomCenter,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: const [
-                          SpinKitDualRing(
-                            color: Colors.white,
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            'Version 1.0.0',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                        ],
-                      )),
-                ),
-              ]),
-        ),
+              Positioned(
+                child: Align(
+                    alignment: FractionalOffset.bottomCenter,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: const [
+                        SpinKitDualRing(
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'Version 1.0.0',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                      ],
+                    )),
+              ),
+            ]),
       ),
     );
     // )
