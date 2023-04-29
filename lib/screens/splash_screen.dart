@@ -87,14 +87,14 @@ class _SplashScreenState extends State<SplashScreen> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: const [
                         SpinKitDualRing(
-                          color: Colors.white,
+                          color: Colors.green,
                         ),
                         SizedBox(
                           height: 5,
                         ),
                         Text(
                           'Version 1.0.0',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.green),
                         ),
                         SizedBox(
                           height: 5,

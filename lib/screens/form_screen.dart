@@ -46,6 +46,7 @@ class _FormScreenState extends State<FormScreen> {
   bool isLoadingProgress = false;
   bool isLoadingLocation = false;
   bool imageLoader = false;
+  bool isFunctional = false;
   final NavigationService navigationService = locator<NavigationService>();
   final UtilService _utilService = locator<UtilService>();
   TextEditingController headwayAdherenceController = TextEditingController();
@@ -65,11 +66,13 @@ class _FormScreenState extends State<FormScreen> {
   List<DropdownMenuItem> routeList = [];
   String? busName = '';
   String? routeName = '';
+  int routeIDforData = 0;
   String? headwayAdherenceValue = "";
   String? busStopAdherenceValue = "";
   List<DropdownMenuItem> itemList = [];
   String behaviourOfStaff = "";
   Position? position;
+  bool busLoader = false;
 
   String _locationMessage = "";
   final picker = ImagePicker();
@@ -166,6 +169,41 @@ class _FormScreenState extends State<FormScreen> {
     }
     setState(() {
       initialLoader = false;
+    });
+  }
+
+  setBusData() {
+    bus = Provider.of<FormProvider>(context, listen: false).bus;
+
+    setState(() {
+      busList = [];
+      busList.add(
+        DropdownMenuItem(
+          value: -1,
+          child: Text(
+            'Bus No.',
+            style: TextStyle(
+              fontSize: 15,
+              color: const Color.fromRGBO(89, 130, 130, 1),
+            ),
+          ),
+        ),
+      );
+      for (int i = 0; i < bus!.length; i++) {
+        busList.add(
+          DropdownMenuItem(
+            value: bus![i].busID,
+            child: Text(
+              bus![i].busNo.toString(),
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        );
+      }
+      busLoader = false;
     });
   }
 
@@ -356,13 +394,19 @@ class _FormScreenState extends State<FormScreen> {
                         ),
                         items: routeList,
                         value: value,
-                        onChanged: (v) {
+                        onChanged: (v) async {
                           // var data = route!
                           //     .firstWhere((element) => element.routeID == v);
                           setState(() {
                             // routeName = data.route;
+                            routeIDforData = v;
                             routeName = v.toString();
+                            busLoader = true;
                           });
+                          await Provider.of<FormProvider>(context,
+                                  listen: false)
+                              .getBusesByRouteID(routeIDforData);
+                          setBusData();
                         },
                       ),
                       SizedBox(
@@ -381,45 +425,53 @@ class _FormScreenState extends State<FormScreen> {
                       SizedBox(
                         height: height * 0.01,
                       ),
-                      DropdownButtonFormField(
-                        borderRadius: BorderRadius.circular(width * 0.02),
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white70,
-                          contentPadding: EdgeInsets.symmetric(
-                            vertical: height * 0.009,
-                            horizontal: height * 0.015,
-                          ),
-                          // fillColor: Colors.white,
-                          // filled: true,
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(width * 0.02),
-                              borderSide: BorderSide(
-                                // color: Color.fromARGB(15, 3, 71, 37),
-                                // color: Colors.green
-                                width: width * 0.005,
-                                color: const Color.fromARGB(255, 56, 154, 71),
-
-                                // color: const Color.fromARGB(255, 6, 69, 38),
-                              )),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(width * 0.02),
-                              borderSide: BorderSide(
-                                width: width * 0.005,
-                                color: Colors.black,
-                              )),
+                      if (busLoader)
+                        SpinKitCircle(
+                          color: Colors.green,
+                          size: MediaQuery.of(context).size.width * 0.12,
                         ),
-                        items: busList,
-                        value: value,
-                        onChanged: (v) {
-                          // var data = bus!
-                          //     .firstWhere((element) => element.busID == v);
-                          setState(() {
-                            // busName = data.busNo;
-                            busName = v.toString();
-                          });
-                        },
-                      ),
+                      if (!busLoader)
+                        DropdownButtonFormField(
+                          borderRadius: BorderRadius.circular(width * 0.02),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white70,
+                            contentPadding: EdgeInsets.symmetric(
+                              vertical: height * 0.009,
+                              horizontal: height * 0.015,
+                            ),
+                            // fillColor: Colors.white,
+                            // filled: true,
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.circular(width * 0.02),
+                                borderSide: BorderSide(
+                                  // color: Color.fromARGB(15, 3, 71, 37),
+                                  // color: Colors.green
+                                  width: width * 0.005,
+                                  color: const Color.fromARGB(255, 56, 154, 71),
+
+                                  // color: const Color.fromARGB(255, 6, 69, 38),
+                                )),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.circular(width * 0.02),
+                                borderSide: BorderSide(
+                                  width: width * 0.005,
+                                  color: Colors.black,
+                                )),
+                          ),
+                          items: busList,
+                          value: value,
+                          onChanged: (v) {
+                            // var data = bus!
+                            //     .firstWhere((element) => element.busID == v);
+                            setState(() {
+                              // busName = data.busNo;
+                              busName = v.toString();
+                            });
+                          },
+                        ),
                       SizedBox(
                         height: height * 0.04,
                       ),
@@ -649,7 +701,7 @@ class _FormScreenState extends State<FormScreen> {
                         // value: value,
                         onChanged: (v) {
                           setState(() {
-                            headwayAdherenceValue = value.toString();
+                            headwayAdherenceValue = v.toString();
                           });
                         },
                       ),
@@ -903,83 +955,96 @@ class _FormScreenState extends State<FormScreen> {
                           onChanged: (v) {
                             setState(() {
                               itsFunctionalValue = v == 1 ? '1' : '0';
+                              if (itsFunctionalValue == '1') {
+                                isFunctional = true;
+                              } else {
+                                isFunctional = false;
+                              }
                             });
                           },
                         ),
 // ====================================================New check boxes starts================================
-
-                      CheckboxListTile(
-                          title: const Text('Ticket Validator'),
-                          value: ticketValidator,
-                          onChanged: (val) {
-                            setState(() {
-                              ticketValidator = val;
-                            });
-                          }),
-                      CheckboxListTile(
-                          title: const Text('Passengers Door Count'),
-                          value: passengerDoorCount,
-                          onChanged: (val) {
-                            setState(() {
-                              passengerDoorCount = val;
-                            });
-                          }),
-                      CheckboxListTile(
-                          title: const Text('Wifi System'),
-                          value: wifiSystem,
-                          onChanged: (val) {
-                            setState(() {
-                              wifiSystem = val;
-                            });
-                          }),
-                      CheckboxListTile(
-                          title: const Text('Message Display Unit'),
-                          value: msgDisUnit,
-                          onChanged: (val) {
-                            setState(() {
-                              msgDisUnit = val;
-                            });
-                          }),
-                      CheckboxListTile(
-                          title: const Text('Audio System'),
-                          value: audioSystem,
-                          onChanged: (val) {
-                            setState(() {
-                              audioSystem = val;
-                            });
-                          }),
-                      CheckboxListTile(
-                          title: const Text('Driver Panic Alarm'),
-                          value: driverPanicAlarm,
-                          onChanged: (val) {
-                            setState(() {
-                              driverPanicAlarm = val;
-                            });
-                          }),
-                      CheckboxListTile(
-                          title: const Text('Stop Buttons'),
-                          value: stopButtons,
-                          onChanged: (val) {
-                            setState(() {
-                              stopButtons = val;
-                            });
-                          }),
-                      CheckboxListTile(
-                          title: const Text('CCTV Cameras'),
-                          value: cctvCam,
-                          onChanged: (val) {
-                            setState(() {
-                              cctvCam = val;
-                            });
-                          }),
-                      CheckboxListTile(
-                          title: const Text('USB Ports'),
-                          value: usb,
-                          onChanged: (val) {
-                            setState(() {
-                              usb = val;
-                            });
-                          }),
+                      if (isFunctional)
+                        CheckboxListTile(
+                            title: const Text('Ticket Validator'),
+                            value: ticketValidator,
+                            onChanged: (val) {
+                              setState(() {
+                                ticketValidator = val;
+                              });
+                            }),
+                      if (isFunctional)
+                        CheckboxListTile(
+                            title: const Text('Passengers Door Count'),
+                            value: passengerDoorCount,
+                            onChanged: (val) {
+                              setState(() {
+                                passengerDoorCount = val;
+                              });
+                            }),
+                      if (isFunctional)
+                        CheckboxListTile(
+                            title: const Text('Wifi System'),
+                            value: wifiSystem,
+                            onChanged: (val) {
+                              setState(() {
+                                wifiSystem = val;
+                              });
+                            }),
+                      if (isFunctional)
+                        CheckboxListTile(
+                            title: const Text('Message Display Unit'),
+                            value: msgDisUnit,
+                            onChanged: (val) {
+                              setState(() {
+                                msgDisUnit = val;
+                              });
+                            }),
+                      if (isFunctional)
+                        CheckboxListTile(
+                            title: const Text('Audio System'),
+                            value: audioSystem,
+                            onChanged: (val) {
+                              setState(() {
+                                audioSystem = val;
+                              });
+                            }),
+                      if (isFunctional)
+                        CheckboxListTile(
+                            title: const Text('Driver Panic Alarm'),
+                            value: driverPanicAlarm,
+                            onChanged: (val) {
+                              setState(() {
+                                driverPanicAlarm = val;
+                              });
+                            }),
+                      if (isFunctional)
+                        CheckboxListTile(
+                            title: const Text('Stop Buttons'),
+                            value: stopButtons,
+                            onChanged: (val) {
+                              setState(() {
+                                stopButtons = val;
+                              });
+                            }),
+                      if (isFunctional)
+                        CheckboxListTile(
+                            title: const Text('CCTV Cameras'),
+                            value: cctvCam,
+                            onChanged: (val) {
+                              setState(() {
+                                cctvCam = val;
+                              });
+                            }),
+                      if (isFunctional)
+                        CheckboxListTile(
+                            title: const Text('USB Ports'),
+                            value: usb,
+                            onChanged: (val) {
+                              setState(() {
+                                usb = val;
+                              });
+                            }),
 
 // ========================================New ccheck boxes ends=================================================
 
@@ -1586,7 +1651,16 @@ class _FormScreenState extends State<FormScreen> {
                             "Remarks": anyotherController.text,
                             "PassengerCount": passengerController.text,
                             "Address": currentLocationController.text,
-                            "ITSFunctional": itsFunctionalValue
+                            "ITSFunctional": itsFunctionalValue,
+                            "TicketValidator": ticketValidator! ? 1 : 0,
+                            "PassengerDoorCount": passengerDoorCount! ? 1 : 0,
+                            "WifiSystem": wifiSystem! ? 1 : 0,
+                            "MessageDisplayUnit": msgDisUnit! ? 1 : 0,
+                            "AudioSystem": audioSystem! ? 1 : 0,
+                            "DriverPanicAlarm": driverPanicAlarm! ? 1 : 0,
+                            "StopButtons": stopButtons! ? 1 : 0,
+                            "CCTVCameras": cctvCam! ? 1 : 0,
+                            "USBPorts": usb! ? 1 : 0
                           };
                           await Provider.of<FormProvider>(context,
                                   listen: false)

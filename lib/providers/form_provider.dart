@@ -35,6 +35,20 @@ class FormProvider with ChangeNotifier {
     }
   }
 
+  getBusesByRouteID(int routeId) async {
+    try {
+      bus = [];
+      var response = await _dio.post('${baseUrl}/GetBusByRoute', data: {
+        'RouteID': routeId,
+      });
+      for (int i = 0; i < response.data.length; i++) {
+        bus!.add(BusModel.fromJson(response.data[i]));
+      }
+    } catch (e) {
+      _utilService.showToast(e.toString());
+    }
+  }
+
   getAllRoutes() async {
     try {
       route = [];
